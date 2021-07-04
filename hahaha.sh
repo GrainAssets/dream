@@ -1,7 +1,7 @@
 #!/bin/bash
 ####################################################################
 #                                                                  #
-# CN US HK Market Status check for Linux or MacOS.                 #
+# Market of CN,US,HK Status check for Linux or MacOS.              #
 # Created by FanJialins, 2021                                      #
 #                                                                  #
 # This script may be freely used, copied, modified and distributed #
