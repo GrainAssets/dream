@@ -98,6 +98,7 @@ PADDING_P="                                                     "               
 PADDING_Q="                                                              "                               # --填充内容[US/RMB]
 PADDING_Y="******************** 数据获取时间： $(date "+%a %d %b %Y %I:%M:%S %p %Z") ********************"
 
+clear
 echo "$PADDING_X"
 
 #######
