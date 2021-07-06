@@ -98,9 +98,6 @@ PADDING_P="                                                     "               
 PADDING_Q="                                                              "                               # --填充内容[US/RMB]
 PADDING_Y="******************** 数据获取时间： $(date "+%a %d %b %Y %I:%M:%S %p %Z") ********************"
 
-clear
-echo "$PADDING_X"
-
 #######
 # 汇率 #
 #######
@@ -300,41 +297,48 @@ DATA_US(){
 
 ###############
 
-DATA_EXCHANGE_RATIO
+PRINT_STATUS_MARKET(){
+    DATA_EXCHANGE_RATIO
+    DATA_CN
+    DATA_HK
+    DATA_US
+    echo -e "$PADDING_H $COLOR_REDS $STRING_11 $COLOR_RESET $COLOR_BLUES $STRING_12 $COLOR_RESET $COLOR_GREENS $STRING_13 $COLOR_RESET             货币单位：人民币"
 
-DATA_CN
+    echo -e "$STRING_1 $PADDING_M $COLOR_RED $VAR_COMS_CN $COLOR_RESET $PADDING_N $COLOR_BLUE $VAR_COMS_US $COLOR_RESET     $COLOR_GREEN $VAR_COMS_HK $COLOR_RESET" 
+    echo -e "$STRING_2 $PADDING_M $COLOR_RED $VAR_VALUE_CN $COLOR_RESET$PADDING_N $COLOR_BLUE $VAR_VALUE_US $COLOR_RESET   $COLOR_GREEN $VAR_VALUE_HK $COLOR_RESET" 
+    echo -e "$STRING_3 $PADDING_M $COLOR_RED $VAR_PE_CN$COLOR_RESET $PADDING_N $COLOR_BLUE $VAR_PE_US $COLOR_RESET    $COLOR_GREEN $VAR_PE_HK $COLOR_RESET" 
+    echo -e "$PADDING_Y"
 
-DATA_HK
+    echo "$PADDING_P $STRING_4_5"
+    echo -e "$PADDING_Q $COLOR_BLUE US/RMB: $VAR_US_RMB $COLOR_RESET"
+    echo -e "$PADDING_Q $COLOR_GREEN HK/RMB: $VAR_HK_RMB $COLOR_RESET"
 
-DATA_US
-
-echo -e "$PADDING_H $COLOR_REDS $STRING_11 $COLOR_RESET $COLOR_BLUES $STRING_12 $COLOR_RESET $COLOR_GREENS $STRING_13 $COLOR_RESET             货币单位：人民币"
-
-echo -e "$STRING_1 $PADDING_M $COLOR_RED $VAR_COMS_CN $COLOR_RESET $PADDING_N $COLOR_BLUE $VAR_COMS_US $COLOR_RESET     $COLOR_GREEN $VAR_COMS_HK $COLOR_RESET" 
-echo -e "$STRING_2 $PADDING_M $COLOR_RED $VAR_VALUE_CN $COLOR_RESET$PADDING_N $COLOR_BLUE $VAR_VALUE_US $COLOR_RESET   $COLOR_GREEN $VAR_VALUE_HK $COLOR_RESET" 
-echo -e "$STRING_3 $PADDING_M $COLOR_RED $VAR_PE_CN$COLOR_RESET $PADDING_N $COLOR_BLUE $VAR_PE_US $COLOR_RESET    $COLOR_GREEN $VAR_PE_HK $COLOR_RESET" 
-echo -e "$PADDING_Y"
-
-echo "$PADDING_P $STRING_4_5"
-echo -e "$PADDING_Q $COLOR_BLUE US/RMB: $VAR_US_RMB $COLOR_RESET"
-echo -e "$PADDING_Q $COLOR_GREEN HK/RMB: $VAR_HK_RMB $COLOR_RESET"
+}
 
 ##################
 # 异常调试信息输出 #
 ##################
 
-if [[ $VAR_STATUS_SRC_RMB = false ]];then           echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_RMB ";fi
-if [[ $VAR_STATUS_DATA_US_RMB = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_RMB ";fi
-if [[ $VAR_STATUS_DATA_HK_RMB = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_RMB ";fi
-if [[ $VAR_STATUS_SRC_SSE = false ]];then           echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_SSE ";fi
-if [[ $VAR_STATUS_DATA_VALUE_SSE = false ]];then    echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_SSE ";fi
-if [[ $VAR_STATUS_SRC_SZSE = false ]];then          echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_SZSE ";fi
-if [[ $VAR_STATUS_DATA_VALUE_SZSE = false ]];then   echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_SZSE ";fi
-if [[ $VAR_STATUS_SRC_HKEX = false ]];then          echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_HKEX ";fi
-if [[ $VAR_STATUS_DATA_PE_GME = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_HKEX ";fi
-if [[ $VAR_STATUS_SRC_MACROMICRO = false ]];then    echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_MACROMICRO ";fi
-if [[ $VAR_STATUS_DATA_VOL_GDP_US = false ]];then   echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_MACROMICRO ";fi
-if [[ $VAR_STATUS_SRC_YCHARTS = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_YCHARTS ";fi
-if [[ $VAR_STATUS_DATA_PE_US = false ]];then        echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_YCHARTS ";fi
+PRINT_ERROR(){
+    if [[ $VAR_STATUS_SRC_RMB = false ]];then           echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_RMB ";fi
+    if [[ $VAR_STATUS_DATA_US_RMB = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_RMB ";fi
+    if [[ $VAR_STATUS_DATA_HK_RMB = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_RMB ";fi
+    if [[ $VAR_STATUS_SRC_SSE = false ]];then           echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_SSE ";fi
+    if [[ $VAR_STATUS_DATA_VALUE_SSE = false ]];then    echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_SSE ";fi
+    if [[ $VAR_STATUS_SRC_SZSE = false ]];then          echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_SZSE ";fi
+    if [[ $VAR_STATUS_DATA_VALUE_SZSE = false ]];then   echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_SZSE ";fi
+    if [[ $VAR_STATUS_SRC_HKEX = false ]];then          echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_HKEX ";fi
+    if [[ $VAR_STATUS_DATA_PE_GME = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_HKEX ";fi
+    if [[ $VAR_STATUS_SRC_MACROMICRO = false ]];then    echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_MACROMICRO ";fi
+    if [[ $VAR_STATUS_DATA_VOL_GDP_US = false ]];then   echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_MACROMICRO ";fi
+    if [[ $VAR_STATUS_SRC_YCHARTS = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_YCHARTS ";fi
+    if [[ $VAR_STATUS_DATA_PE_US = false ]];then        echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_YCHARTS ";fi
+}
 
+
+##################
+
+echo "$PADDING_X"
+PRINT_STATUS_MARKET
+PRINT_ERROR
 echo "$PADDING_X"
