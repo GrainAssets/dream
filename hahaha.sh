@@ -64,7 +64,7 @@ VAR_DOMAIN_DATA_SZSE=http://www.szse.cn/api/report/index/overview/onepersistenth
 VAR_DOMAIN_DATA_HKEX=https://www.hkex.com.hk/eng/csm/ws/Highlightsearch.asmx/GetData?LangCode=en\&TDD=$(date +%-d)\&TMM=$(date +%-m)\&TYYYY=$(date +%Y)
 VAR_DOMAIN_DATA_MACROMICRO=https://sc.macromicro.me/collections/9/us-market-relative
 VAR_DOMAIN_DATA_YCHARTS=https://ycharts.com/indicators/sp_500_pe_ratio
-VAR_STATUS_RMB_EXCHANGE_RATIO=false
+VAR_STATUS_EXCHANGE_RATIO=false
 VAR_STATUS_DATA_CN=false
 VAR_STATUS_DATA_HK=false
 DIR_SCRIPT=$(cd "$(dirname "${BASH_SOURCE[0]}")" || exit; pwd)
@@ -91,8 +91,8 @@ STRING_5="参考汇率:"
 STRING_11="中国市场"
 STRING_12="美国市场"
 STRING_13="香港市场"      
-STRING_21="异常来源,检查:"
-STRING_22="异常数据,检查:"
+STRING_21="$COLOR_YELLOW 异常来源,检查:"
+STRING_22="$COLOR_PURPLE 异常数据,检查:"
 
 PADDING_X="----------------------------------------------------------------------------------------"
 PADDING_H="                          "                                                                   # --填充[中国市场 美国市场 香港市场]
@@ -130,7 +130,7 @@ OBTAIN_DATA_SRC_CMBCHINA(){
         echo "$VAR_DATA_CMBCHINA" > "$DIR_SCRIPT"/log/DATA_SRC_CMBCHINA.log
     fi
 
-    echo -e "$VAR_DOMAIN_DATA_CMBCHINA\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIME_OBTAIN.log
+    echo -e "$VAR_DOMAIN_DATA_CMBCHINA\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIMEOUT.log
     
 }
 
@@ -144,7 +144,7 @@ OBTAIN_DATA_SRC_SSE(){
         echo "$VAR_DATA_SSE" > "$DIR_SCRIPT"/log/DATA_SRC_SSE.log
     fi
     
-    echo -e "$VAR_DOMAIN_DATA_SSE\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIME_OBTAIN.log
+    echo -e "$VAR_DOMAIN_DATA_SSE\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIMEOUT.log
 }
 
 OBTAIN_DATA_SRC_SZSE(){
@@ -157,7 +157,7 @@ OBTAIN_DATA_SRC_SZSE(){
         echo "$VAR_DATA_SZSE" > "$DIR_SCRIPT"/log/DATA_SRC_SZSE.log
     fi
     
-    echo -e "$VAR_DOMAIN_DATA_SZSE\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIME_OBTAIN.log
+    echo -e "$VAR_DOMAIN_DATA_SZSE\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIMEOUT.log
 }
 
 OBTAIN_DATA_SRC_HKEX(){
@@ -170,7 +170,7 @@ OBTAIN_DATA_SRC_HKEX(){
         echo "$VAR_DATA_HKEX" > "$DIR_SCRIPT"/log/DATA_SRC_HKEX.log
     fi
     
-    echo -e "$VAR_DOMAIN_DATA_HKEX\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIME_OBTAIN.log
+    echo -e "$VAR_DOMAIN_DATA_HKEX\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIMEOUT.log
 }
 
 OBTAIN_DATA_SRC_MACROMICRO(){
@@ -183,7 +183,7 @@ OBTAIN_DATA_SRC_MACROMICRO(){
         echo "$VAR_DATA_MACROMICRO" > "$DIR_SCRIPT"/log/DATA_SRC_MACROMICRO.log
     fi
     
-    echo -e "$VAR_DOMAIN_DATA_MACROMICRO\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIME_OBTAIN.log
+    echo -e "$VAR_DOMAIN_DATA_MACROMICRO\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIMEOUT.log
 }
 
 OBTAIN_DATA_SRC_YCHARTS(){
@@ -196,10 +196,10 @@ OBTAIN_DATA_SRC_YCHARTS(){
         echo "$VAR_DATA_YCHARTS" > "$DIR_SCRIPT"/log/DATA_SRC_YCHARTS.log
     fi
     
-    echo -e "$VAR_DOMAIN_DATA_YCHARTS\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIME_OBTAIN.log
+    echo -e "$VAR_DOMAIN_DATA_YCHARTS\n耗时:$((SECONDS - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIMEOUT.log
 }
 
-OBTAIN_DATA_SRC(){
+OBTAIN_DATA_SRC_ALL(){
 
     OBTAIN_DATA_SRC_CMBCHINA &
     OBTAIN_DATA_SRC_SSE &
@@ -209,7 +209,7 @@ OBTAIN_DATA_SRC(){
     OBTAIN_DATA_SRC_YCHARTS &
     wait
 
-    echo -e "$PADDING_Y" >> "$DIR_SCRIPT"/log/TIME_OBTAIN.log
+    echo -e "$PADDING_Y" >> "$DIR_SCRIPT"/log/TIMEOUT.log
     
 }
 
@@ -240,12 +240,12 @@ PARSE_DATA_SRC_CMBCHINA(){
     fi
 }
 
-MACHINING_EXCHANGE_RATIO_SRC_CMBCHINA(){
+MACHINING_DATA_EXCHANGE_RATIO_SRC_CMBCHINA(){
     PARSE_DATA_SRC_CMBCHINA
     if [[ $VAR_STATUS_SRC_CMBCHINA = true ]];then
-        # 数据解析成功，前段参数置“实时汇率”，否则置“参考汇率”
+        # 数据解析成功，加工前置参数，成功置“实时汇率”，否则置“参考汇率”
         if [[ $VAR_STATUS_DATA_US_RMB = true && $VAR_STATUS_DATA_HK_RMB = true ]];then
-            VAR_STATUS_RMB_EXCHANGE_RATIO=true
+            VAR_STATUS_EXCHANGE_RATIO=true
             STRING_4_5=$STRING_4
         else
             STRING_4_5=$STRING_5
@@ -255,8 +255,24 @@ MACHINING_EXCHANGE_RATIO_SRC_CMBCHINA(){
     fi
 }
 
+# 任意一个源，数据解析并加工成功，否则采用变量默认值
 DATA_EXCHANGE_RATIO(){
-    MACHINING_EXCHANGE_RATIO_SRC_CMBCHINA
+    VAR_SOURCE_DATA_EXCHANGE_RATIO_NUM=1
+    while :
+    do
+        case $VAR_SOURCE_DATA_EXCHANGE_RATIO_NUM in
+        1)
+            MACHINING_DATA_EXCHANGE_RATIO_SRC_CMBCHINA
+            if [[ $VAR_STATUS_EXCHANGE_RATIO = true ]];then
+                break
+            else
+                ((VAR_SOURCE_DATA_EXCHANGE_RATIO_NUM++))
+            fi
+            ;;
+        *)
+            break
+        esac
+    done
 }
 
 #######
@@ -306,15 +322,32 @@ MACHINING_DATA_CN_SRC_SSE_SZSE(){
     if [[ $VAR_STATUS_DATA_VALUE_SSE = true && $VAR_STATUS_DATA_VALUE_SZSE = true ]];then
         VAR_COMS_CN=$(( VAR_COMS_SSE + VAR_COMS_SZSE ))
         VAR_VALUE_CN1=$(echo "scale=2;($VAR_VALUE_SSE+$VAR_VALUE_SZSE)" | bc | awk '{printf "%.2f\n", $0}') && \
-        VAR_PE_CN=$(echo "scale=2;($VAR_PE_SSE*$VAR_PE_SZSE)*$VAR_VALUE_CN1/(($VAR_PE_SSE*$VAR_VALUE_SZSE)+($VAR_PE_SZSE*$VAR_VALUE_SSE))" | bc | awk '{printf "%.2f\n", $0}')
+        VAR_PE_CN=$(echo "scale=2;($VAR_PE_SSE*$VAR_PE_SZSE)*$VAR_VALUE_CN1/(($VAR_PE_SSE*$VAR_VALUE_SZSE)+($VAR_PE_SZSE*$VAR_VALUE_SSE))" \
+        | bc | awk '{printf "%.2f\n", $0}')
         VAR_VALUE_CN=$(echo "scale=2;$VAR_VALUE_CN1/10000" | bc | awk '{printf "%.2f\n", $0}')
         VAR_STATUS_DATA_CN=true
     fi
 
 }
 
+# 任意一个源，数据解析并加工成功，否则采用变量默认值
 DATA_CN(){
-    MACHINING_DATA_CN_SRC_SSE_SZSE
+    VAR_SOURCE_DATA_CN_NUM=1
+    while :
+    do
+        case $VAR_SOURCE_DATA_CN_NUM in
+        1)
+            MACHINING_DATA_CN_SRC_SSE_SZSE
+            if [[ $VAR_STATUS_DATA_CN = true ]];then
+                break
+            else
+                ((VAR_SOURCE_DATA_CN_NUM++))
+            fi
+            ;;
+        *)
+            break
+        esac
+    done
 }
 
 ###########
@@ -351,14 +384,31 @@ MACHINING_DATA_HK_SRC_HKEX(){
     if [[ $VAR_STATUS_DATA_PE_GME = true ]];then
         VAR_COMS_HK=$(( VAR_COMS_MAIN + VAR_COMS_GME ))
         VAR_VALUE_HK1=$(echo "scale=2;($VAR_VALUE_MAIN+$VAR_VALUE_GME)" | bc | awk '{printf "%.2f\n", $0}') && \
-        VAR_PE_HK=$(echo "scale=2;($VAR_PE_MAIN*$VAR_PE_GME)*$VAR_VALUE_HK1/(($VAR_PE_MAIN*$VAR_VALUE_GME)+($VAR_PE_GME*$VAR_VALUE_MAIN))" | bc | awk '{printf "%.2f\n", $0}')
+        VAR_PE_HK=$(echo "scale=2;($VAR_PE_MAIN*$VAR_PE_GME)*$VAR_VALUE_HK1/(($VAR_PE_MAIN*$VAR_VALUE_GME)+($VAR_PE_GME*$VAR_VALUE_MAIN))" \
+        | bc | awk '{printf "%.2f\n", $0}')
         VAR_VALUE_HK=$(echo "scale=2;$VAR_VALUE_HK1*10/10000*$VAR_HK_RMB" | bc | awk '{printf "%.2f\n", $0}')
         VAR_STATUS_DATA_HK=true    
     fi
 }
 
+# 任意一个源，数据解析并加工成功，否则采用变量默认值
 DATA_HK(){
-    MACHINING_DATA_HK_SRC_HKEX
+    VAR_SOURCE_DATA_HK_NUM=1
+    while :
+    do
+        case $VAR_SOURCE_DATA_HK_NUM in
+        1)
+            MACHINING_DATA_HK_SRC_HKEX
+            if [[ $VAR_STATUS_DATA_CN = true ]];then
+                break
+            else
+                ((VAR_SOURCE_DATA_HK_NUM++))
+            fi
+            ;;
+        *)
+            break
+        esac
+    done
 }
 
 ###########
@@ -462,27 +512,34 @@ PRINT_STATUS_MARKET(){
 ##################
 
 PRINT_ERROR(){
-    if [[ $VAR_STATUS_SRC_CMBCHINA = false ]];then      echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_CMBCHINA ";fi
-    if [[ $VAR_STATUS_DATA_US_RMB = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_CMBCHINA ";fi
-    if [[ $VAR_STATUS_DATA_HK_RMB = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_CMBCHINA ";fi
-    if [[ $VAR_STATUS_SRC_SSE = false ]];then           echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_SSE ";fi
-    if [[ $VAR_STATUS_DATA_VALUE_SSE = false ]];then    echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_SSE ";fi
-    if [[ $VAR_STATUS_SRC_SZSE = false ]];then          echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_SZSE ";fi
-    if [[ $VAR_STATUS_DATA_VALUE_SZSE = false ]];then   echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_SZSE ";fi
-    if [[ $VAR_STATUS_SRC_HKEX = false ]];then          echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_HKEX ";fi
-    if [[ $VAR_STATUS_DATA_PE_GME = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_HKEX ";fi
-    if [[ $VAR_STATUS_SRC_MACROMICRO = false ]];then    echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_MACROMICRO ";fi
-    if [[ $VAR_STATUS_DATA_VOL_GDP_US = false ]];then   echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_MACROMICRO ";fi
-    if [[ $VAR_STATUS_SRC_YCHARTS = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_YCHARTS ";fi
-    if [[ $VAR_STATUS_DATA_PE_US = false ]];then        echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_YCHARTS ";fi
+    if [[ $VAR_STATUS_SRC_CMBCHINA = false ]];then      echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_CMBCHINA $COLOR_RESET";fi
+    if [[ $VAR_STATUS_DATA_US_RMB = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_CMBCHINA $COLOR_RESET";fi
+    if [[ $VAR_STATUS_DATA_HK_RMB = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_CMBCHINA $COLOR_RESET";fi
+    if [[ $VAR_STATUS_SRC_SSE = false ]];then           echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_SSE $COLOR_RESET";fi
+    if [[ $VAR_STATUS_DATA_VALUE_SSE = false ]];then    echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_SSE $COLOR_RESET";fi
+    if [[ $VAR_STATUS_SRC_SZSE = false ]];then          echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_SZSE $COLOR_RESET";fi
+    if [[ $VAR_STATUS_DATA_VALUE_SZSE = false ]];then   echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_SZSE $COLOR_RESET";fi
+    if [[ $VAR_STATUS_SRC_HKEX = false ]];then          echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_HKEX $COLOR_RESET";fi
+    if [[ $VAR_STATUS_DATA_PE_GME = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_HKEX $COLOR_RESET";fi
+    if [[ $VAR_STATUS_SRC_MACROMICRO = false ]];then    echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_MACROMICRO $COLOR_RESET";fi
+    if [[ $VAR_STATUS_DATA_VOL_GDP_US = false ]];then   echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_MACROMICRO $COLOR_RESET";fi
+    if [[ $VAR_STATUS_SRC_YCHARTS = false ]];then       echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_21 $VAR_DOMAIN_DATA_YCHARTS $COLOR_RESET";fi
+    if [[ $VAR_STATUS_DATA_PE_US = false ]];then        echo -e "$COLOR_RED $(date "+%a %d %b %Y %I:%M:%S %p %Z") $STRING_22 $VAR_DOMAIN_DATA_YCHARTS $COLOR_RESET";fi
 }
 
 
 ##################
 
 MKDIR_LOG
-OBTAIN_DATA_SRC
+
+VAR_TIME_START=$SECONDS
+OBTAIN_DATA_SRC_ALL
+VAR_TIME_STOP=$SECONDS && echo -e "抓取耗时:$((VAR_TIME_STOP - VAR_TIME_START)) 秒" >> "$DIR_SCRIPT"/log/TIMEOUT.log
+
+VAR_TIME_START=$SECONDS
 PRINT_STATUS_MARKET
 PRINT_ERROR
+VAR_TIME_STOP=$SECONDS && echo -e "解析计算耗时:$((VAR_TIME_STOP - VAR_TIME_START)) 秒\n$PADDING_Y" >> "$DIR_SCRIPT"/log/TIMEOUT.log
+
 
 echo "$PADDING_X"
