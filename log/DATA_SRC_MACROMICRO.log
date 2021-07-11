@@ -365,7 +365,7 @@ window.fbAsyncInit = function(){
 
                       <div class="comments-wrapper" id="comments-chart-105">
                         <form class="comments-form" id="comments-form-chart-105" action="/api/comments/chart/105" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-105" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -545,7 +545,7 @@ window.fbAsyncInit = function(){
 
                       <div class="comments-wrapper" id="comments-chart-48">
                         <form class="comments-form" id="comments-form-chart-48" action="/api/comments/chart/48" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-48" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -703,7 +703,7 @@ window.fbAsyncInit = function(){
 
                       <div class="comments-wrapper" id="comments-chart-91">
                         <form class="comments-form" id="comments-form-chart-91" action="/api/comments/chart/91" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-91" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -921,7 +921,7 @@ window.fbAsyncInit = function(){
 
                       <div class="comments-wrapper" id="comments-chart-47">
                         <form class="comments-form" id="comments-form-chart-47" action="/api/comments/chart/47" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-47" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -1112,7 +1112,7 @@ window.fbAsyncInit = function(){
 
                       <div class="comments-wrapper" id="comments-chart-46">
                         <form class="comments-form" id="comments-form-chart-46" action="/api/comments/chart/46" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-46" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -1298,7 +1298,7 @@ BBB 表示中级，有风险，有足够的还本付息能力，但缺乏可靠�
 
                       <div class="comments-wrapper" id="comments-chart-116">
                         <form class="comments-form" id="comments-form-chart-116" action="/api/comments/chart/116" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-116" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -1467,7 +1467,7 @@ BBB 表示中级，有风险，有足够的还本付息能力，但缺乏可靠�
 
                       <div class="comments-wrapper" id="comments-chart-117">
                         <form class="comments-form" id="comments-form-chart-117" action="/api/comments/chart/117" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-117" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -1644,7 +1644,7 @@ BBB 表示中级，有风险，有足够的还本付息能力，但缺乏可靠�
 
                       <div class="comments-wrapper" id="comments-chart-168">
                         <form class="comments-form" id="comments-form-chart-168" action="/api/comments/chart/168" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-168" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -1800,7 +1800,7 @@ BBB 表示中级，有风险，有足够的还本付息能力，但缺乏可靠�
 
                       <div class="comments-wrapper" id="comments-chart-50">
                         <form class="comments-form" id="comments-form-chart-50" action="/api/comments/chart/50" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-50" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -1969,7 +1969,7 @@ M2（广义货币供给量） = M1 ＋ 定期存款 ＋ 居民储蓄存款<br />
 
                       <div class="comments-wrapper" id="comments-chart-3439">
                         <form class="comments-form" id="comments-form-chart-3439" action="/api/comments/chart/3439" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-3439" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -2133,7 +2133,7 @@ Libor 是市场上浮动利率产品定价的基准利率，各式牵扯到利�
 
                       <div class="comments-wrapper" id="comments-chart-3741">
                         <form class="comments-form" id="comments-form-chart-3741" action="/api/comments/chart/3741" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-3741" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -2311,7 +2311,7 @@ Libor 是市场上浮动利率产品定价的基准利率，各式牵扯到利�
 
                       <div class="comments-wrapper" id="comments-chart-3765">
                         <form class="comments-form" id="comments-form-chart-3765" action="/api/comments/chart/3765" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-3765" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -2470,7 +2470,7 @@ Libor 是市场上浮动利率产品定价的基准利率，各式牵扯到利�
 
                       <div class="comments-wrapper" id="comments-chart-3985">
                         <form class="comments-form" id="comments-form-chart-3985" action="/api/comments/chart/3985" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-3985" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -2642,7 +2642,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
 
                       <div class="comments-wrapper" id="comments-chart-3997">
                         <form class="comments-form" id="comments-form-chart-3997" action="/api/comments/chart/3997" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-3997" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -2807,7 +2807,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
 
                       <div class="comments-wrapper" id="comments-chart-24044">
                         <form class="comments-form" id="comments-form-chart-24044" action="/api/comments/chart/24044" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-24044" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -2982,7 +2982,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
 
                       <div class="comments-wrapper" id="comments-chart-1241">
                         <form class="comments-form" id="comments-form-chart-1241" action="/api/comments/chart/1241" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-1241" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -3152,7 +3152,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
 
                       <div class="comments-wrapper" id="comments-chart-1249">
                         <form class="comments-form" id="comments-form-chart-1249" action="/api/comments/chart/1249" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-1249" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -3326,7 +3326,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
 
                       <div class="comments-wrapper" id="comments-chart-1248">
                         <form class="comments-form" id="comments-form-chart-1248" action="/api/comments/chart/1248" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-1248" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -3492,7 +3492,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
 
                       <div class="comments-wrapper" id="comments-chart-9684">
                         <form class="comments-form" id="comments-form-chart-9684" action="/api/comments/chart/9684" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-9684" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -3658,7 +3658,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
 
                       <div class="comments-wrapper" id="comments-chart-9682">
                         <form class="comments-form" id="comments-form-chart-9682" action="/api/comments/chart/9682" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-9682" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -3824,7 +3824,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
 
                       <div class="comments-wrapper" id="comments-chart-9683">
                         <form class="comments-form" id="comments-form-chart-9683" action="/api/comments/chart/9683" method="post">
-                          <input type="hidden" name="csrf" value="d2518162d1813">
+                          <input type="hidden" name="csrf" value="3415e1113c046">
                           <div class="form-group">
                             <textarea name="msg" cols="64" rows="1" placeholder="请先登入会员" data-autoresize data-autocounter="#char-counter-chart-9683" data-min="10" data-max="500"></textarea>
                             <div class="comment-btns">
@@ -3929,7 +3929,7 @@ FSI 分别根据美国、成熟国家（欧元区、日本）及新兴国家评�
         
         <ul>
           <li>
-            <p data-stk="cfd4867f273b9142f4ae15f38fc2cb79">Copyright &copy; 2021 MacroMicro</p>
+            <p data-stk="eeda6f58d990c7a98f0cef8d7b12ecb9">Copyright &copy; 2021 MacroMicro</p>
             <p>网站内提供之数据资料、分析工具、网志内容仅供使用者作为参考，实际数据以官方公布资料为准。任何交易行为须自行判断并承担风险，本网站不负担盈亏之法律责任。</p>
             <p>欢迎分享本网站提供之资讯连结，如需转载内容务必经由本公司同意。</p>
             <p class="langs hide-en">

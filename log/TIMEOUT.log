@@ -302,3 +302,19 @@ https://sc.macromicro.me/collections/9/us-market-relative
 抓取耗时:2 秒
 解析计算耗时:5 秒
 ******************** 数据获取时间： Fri 09 Jul 2021 07:12:00 PM CST ********************
+http://www.szse.cn/api/report/index/overview/onepersistenthour/szse
+耗时:0 秒
+http://www.sse.com.cn
+耗时:0 秒
+https://m.cmbchina.com/api/rate/getfxratedetail/?name=%E7%BE%8E%E5%85%83
+耗时:0 秒
+https://www.hkex.com.hk/eng/csm/ws/Highlightsearch.asmx/GetData?LangCode=en&TDD=9&TMM=7&TYYYY=2021
+耗时:0 秒
+https://ycharts.com/indicators/sp_500_pe_ratio
+耗时:1 秒
+https://sc.macromicro.me/collections/9/us-market-relative
+耗时:2 秒
+******************** 数据获取时间： Fri 09 Jul 2021 07:14:24 PM CST ********************
+抓取耗时:2 秒
+解析计算耗时:4 秒
+******************** 数据获取时间： Fri 09 Jul 2021 07:14:24 PM CST ********************
